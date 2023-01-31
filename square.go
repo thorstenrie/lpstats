@@ -3,7 +3,8 @@
 // that can be found in the LICENSE file.
 package lpstats
 
-func Square[T num](x T) float64 {
+// Square returns the square of x as float64
+func Square[T number](x T) float64 {
 	y := float64(x)
 	return y * y
 }

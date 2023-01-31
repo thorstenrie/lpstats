@@ -7,7 +7,7 @@ package lpstats
 // Note: The smallest value of an integer type does not have a
 // matching positive value. The Abs function returns a
 // negative value in this case.
-func Abs[T num](a T) T {
+func Abs[T number](a T) T {
 	// Return -a if a is negative
 	if a < 0 {
 		return -a

@@ -3,7 +3,8 @@
 // that can be found in the LICENSE file.
 package lpstats
 
-func Sum[T num](x []T) T {
+// Sum returns the sum of all elements in array x.
+func Sum[T number](x []T) T {
 	var sum T
 	for i := 0; i < len(x); i++ {
 		sum += x[i]
