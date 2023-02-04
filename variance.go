@@ -31,24 +31,27 @@ func Variance[T number](x []T) (float64, error) {
 	return vari / float64(len(x)), nil
 }
 
-// VarianceU returns the variance of the uniform distribution in the interval [a,b] as float64. It returns
-// zero and an error, if a is higher than b.
-func VarianceU[T number](a, b T) (float64, error) {
-	// Return zero and an error if a is higher than b
+// VarianceU returns the variance of the uniform distribution in the interval [a,b] as float64. If b is greater than a
+// it returns the variance of the uniform distribution in the interval [b,a].
+func VarianceU[T number](a, b T) float64 {
+	// l for lower bound and u for upper bound of interval [l,u]
+	var l, u T
+	// Define interval of the uniform distribution
 	if a > b {
-		return float64(0), tserr.Higher(&tserr.HigherArgs{Var: "b", Actual: int64(b), LowerBound: int64(a)})
+		// Interval is [b,a]
+		l = b
+		u = a
+	} else {
+		// Interval is [a,b]
+		l = a
+		u = b
 	}
 	// Calculate and return the variance
-	return float64(Square(b-a)) / float64(12), nil
+	return float64(Square(u-l)) / float64(12)
 }
 
-// VarianceN returns the Variance of an n-sided die as float64. It returns zero and an
-// error if n is zero or negative.
-func VarianceN[T integer](n T) (float64, error) {
-	// Return zero and an error if n is zero or negative
-	if n <= 0 {
-		return float64(0), tserr.Higher(&tserr.HigherArgs{Var: "n", Actual: int64(n), LowerBound: 1})
-	}
+// VarianceN returns the Variance of an n-sided die as float64.
+func VarianceN[T uinteger](n T) float64 {
 	// Calculate and return the variance
-	return (Square(n) - float64(1)) / float64(12), nil
+	return (Square(n) - float64(1)) / float64(12)
 }

@@ -10,11 +10,18 @@ import "github.com/thorstenrie/tserr" // tserr
 // zero and an error if x is empty.
 func ArithmeticMean[T number](x []T) (float64, error) {
 	// Return zero and an error if x is empty
-	if len(x) == 0 {
+	if len(x) <= 0 {
 		return float64(0), tserr.Empty("x")
 	}
 	// calculate and return the arithmetic mean
-	return float64(Sum(x)) / float64(len(x)), nil
+	var (
+		s float64
+		e error
+	)
+	if s, e = Sum(x); e != nil {
+		return float64(0), tserr.Op(&tserr.OpArgs{Op: "Sum", Fn: "x", Err: e})
+	}
+	return s / float64(len(x)), nil
 }
 
 // ExpectedValueU returns the expected value for the uniform distribution in interval [a,b] as float64.
