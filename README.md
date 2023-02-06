@@ -45,7 +45,34 @@ External functions can be used with arguments of type integer or float. Type con
 
 ## Example
 
+```
+package main
 
+import (
+	"fmt"
+
+	"github.com/thorstenrie/lpstats"
+)
+
+func main() {
+	var (
+		i []int     = []int{1, 2, 3, 4, 5, 6}
+		x []float64 = []float64{1.1, 2.1, 3.1, 4.1, 5.1, 6.1}
+		n uint      = 6
+	)
+
+	im, _ := lpstats.ArithmeticMean(i)
+	xm, _ := lpstats.ArithmeticMean(x)
+
+	iv, _ := lpstats.Variance(i)
+	xv, _ := lpstats.Variance(x)
+
+	fmt.Printf("Mean(i) = %f, Variance(i) = %f\n", im, iv)
+	fmt.Printf("Mean(f) = %f, Variance(x) = %f\n", xm, xv)
+
+	fmt.Printf("Variance of a %d-sided die: %.2f\n", n, lpstats.VarianceN(n))
+}
+```
 
 ## Known Limitations
 
