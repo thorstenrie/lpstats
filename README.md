@@ -1,2 +1,52 @@
 # lpstats
 Go package for simple statistics
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/thorstenrie/lpstats)](https://goreportcard.com/report/github.com/thorstenrie/lpstats)
+[![CodeFactor](https://www.codefactor.io/repository/github/thorstenrie/lpstats/badge)](https://www.codefactor.io/repository/github/thorstenrie/lpstats)
+![OSS Lifecycle](https://img.shields.io/osslifecycle/thorstenrie/lpstats)
+
+[![PkgGoDev](https://pkg.go.dev/badge/mod/github.com/thorstenrie/lpstats)](https://pkg.go.dev/mod/github.com/thorstenrie/lpstats)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/thorstenrie/lpstats)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/thorstenrie/lpstats)
+
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/thorstenrie/lpstats)
+![GitHub last commit](https://img.shields.io/github/last-commit/thorstenrie/lpstats)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thorstenrie/lpstats)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/thorstenrie/lpstats)
+![GitHub Top Language](https://img.shields.io/github/languages/top/thorstenrie/lpstats)
+![GitHub](https://img.shields.io/github/license/thorstenrie/lpstats)
+
+The package lpstats provides a simple interface for statistics. It provides functions for the calculation of mean and variance.
+
+- **Simple**: Without configuration, just function calls
+- **Easy to use**: Most functions take integer and float values as arguments
+- **Tested**: Unit tests with high [code coverage](https://gocover.io/github.com/thorstenrie/lpstats)
+- **Dependencies**: Only depends on the [Go Standard Library](https://pkg.go.dev/std) and [tserr](https://github.com/thorstenrie/tserr)
+
+## Usage
+
+The package is installed with 
+
+```
+go get github.com/thorstenrie/lpstats
+```
+
+In the Go app, the package is imported with
+
+```
+import "github.com/thorstenrie/lpstats"
+```
+
+External functions can be used with arguments of type integer or float. Type constraints are defined in [constraints.go](https://github.com/thorstenrie/lpstats/blob/main/constraints.go).
+
+- `number`: number types, for example, `func Square[T number](x T) float64`
+- `signed`: signed number types, for example, `func Sign[T signed](a T) T`
+- `uinteger`: unsigned integer types, for example, `func VarianceN[T uinteger](n T) float64`
+
+## Example
+
+
+
+## Known Limitations
+
+- The calculations are based on floating point arithmetic. It is not suitable for arbitrary precision fixed-point decimal numbers.

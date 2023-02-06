@@ -30,7 +30,7 @@ func TestVarianceUf(t *testing.T) {
 
 // TestVarianceE tests if Variance returns an error for an empty slice
 func TestVarianceE(t *testing.T) {
-	if e := testfa(t, nil, 0, Variance[int]); e == nil {
+	if e := testfa(t, nil /*a*/, 0 /*w*/, Variance[int]); e == nil {
 		t.Error(tserr.NilFailed("Variance"))
 	}
 }
@@ -38,7 +38,7 @@ func TestVarianceE(t *testing.T) {
 // TestVariancei tests the returned value of Variance for a slice of integers.
 // It fails if Sum does not return the wanted value.
 func TestVariancei(t *testing.T) {
-	if e := testfa(t, []int{1, 2, 3, 4, 5, 6}, 2.92, Variance[int]); e != nil {
+	if e := testfa(t, []int{1, 2, 3, 4, 5, 6} /*a*/, 2.92 /*w*/, Variance[int]); e != nil {
 		t.Error(tserr.Op(&tserr.OpArgs{Op: "Variance", Fn: "slice of integers", Err: e}))
 	}
 }
@@ -46,7 +46,7 @@ func TestVariancei(t *testing.T) {
 // TestVariancef tests the returned value of Variance for a slice of float64.
 // It fails if Sum does not return the wanted value.
 func TestVariancef(t *testing.T) {
-	if e := testfa(t, []float64{1, 2, 3, 4, 5, 6}, 2.92, Variance[float64]); e != nil {
+	if e := testfa(t, []float64{1, 2, 3, 4, 5, 6} /*a*/, 2.92 /*w*/, Variance[float64]); e != nil {
 		t.Error(tserr.Op(&tserr.OpArgs{Op: "Variance", Fn: "slice of integers", Err: e}))
 	}
 }
