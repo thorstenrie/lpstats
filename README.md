@@ -76,4 +76,4 @@ func main() {
 
 ## Known Limitations
 
-- The calculations are based on floating point arithmetic. It is not suitable for arbitrary precision fixed-point decimal numbers.
+- The calculations are based on floating point arithmetic. It is not suitable for arbitrary precision fixed-point decimal arithmetic.
