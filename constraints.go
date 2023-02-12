@@ -4,31 +4,31 @@
 package lpstats
 
 // number constraints types to all number types
-type number interface {
-	integer | floating
+type Number interface {
+	Integer | Floating
 }
 
 // signed constraints types to signed number types
-type signed interface {
-	floating | sinteger
+type Signed interface {
+	Floating | Sinteger
 }
 
 // integer constraints types to signed and unsigned integer types
-type integer interface {
-	sinteger | uinteger
+type Integer interface {
+	Sinteger | Uinteger
 }
 
 // sinteger constraints types to signed integer types
-type sinteger interface {
+type Sinteger interface {
 	~int | ~int8 | ~int16 | ~int32 | ~int64
 }
 
 // uinteger constraints types to unsigned integer types
-type uinteger interface {
+type Uinteger interface {
 	~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64
 }
 
 // floating constraints types to floating types
-type floating interface {
+type Floating interface {
 	~float32 | ~float64
 }

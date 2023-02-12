@@ -8,7 +8,7 @@ import "github.com/thorstenrie/tserr" // tserr
 
 // ArithmeticMean returns the arithmetic mean of number array x as float64. It returns
 // zero and an error if x is empty.
-func ArithmeticMean[T number](x []T) (float64, error) {
+func ArithmeticMean[T Number](x []T) (float64, error) {
 	// Return zero and an error if x is empty
 	if len(x) <= 0 {
 		return float64(0), tserr.Empty("x")
@@ -25,6 +25,6 @@ func ArithmeticMean[T number](x []T) (float64, error) {
 }
 
 // ExpectedValueU returns the expected value for the uniform distribution in interval [a,b] as float64.
-func ExpectedValueU[T number](a, b T) float64 {
+func ExpectedValueU[T Number](a, b T) float64 {
 	return (float64(a) + float64(b)) / float64(2)
 }

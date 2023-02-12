@@ -4,15 +4,18 @@
 package lpstats
 
 import (
-	"math"
 	"testing"
 
 	"github.com/thorstenrie/tserr"
 )
 
+const (
+	maxDiff float64 = 0.01
+)
+
 // testi tests function f to return wanted integer w for argument a. If the
 // result of f for a does not equal w, the test fails.
-func testi[T number](t *testing.T, a T, w int64, f func(T) int64) {
+func testi[T Number](t *testing.T, a T, w int64, f func(T) int64) {
 	if t == nil {
 		panic("nil pointer")
 	}
@@ -26,28 +29,28 @@ func testi[T number](t *testing.T, a T, w int64, f func(T) int64) {
 
 // testf tests function f to return wanted float64 w for argument a. If the
 // result of f for a does not equal w with the precision of two decimal places, the test fails.
-func testf[T number](t *testing.T, a T, w float64, f func(T) float64) {
+func testf[T Number](t *testing.T, a T, w float64, f func(T) float64) {
 	if t == nil {
 		panic("nil pointer")
 	}
 	// Retrieve f of a in r
 	r := f(a)
-	// If the result r does not equal the wanted result w with the precision of two decimal places, the test fails
-	if !testEqualp2(r, w) {
+	// If the result r does not equal the wanted result w, the test fails
+	if !NearEqual(r, w, maxDiff) {
 		t.Error(tserr.Equalf(&tserr.EqualfArgs{Var: "function of a", Actual: r, Want: w}))
 	}
 }
 
 // testf2 tests function f to return wanted float64 w for arguments a and b. If the
 // result of f for a and b does not equal w with the precision of two decimal places, the test fails.
-func testf2[T number](t *testing.T, a, b T, w float64, f func(T, T) float64) {
+func testf2[T Number](t *testing.T, a, b T, w float64, f func(T, T) float64) {
 	if t == nil {
 		panic("nil pointer")
 	}
 	// Retrieve f of a in b
 	r := f(a, b)
-	// If the result r does not equal the wanted result w with the precision of two decimal places, the test fails
-	if !testEqualp2(r, w) {
+	// If the result r does not equal the wanted result w, the test fails
+	if !NearEqual(r, w, maxDiff) {
 		t.Error(tserr.Equalf(&tserr.EqualfArgs{Var: "function of a", Actual: r, Want: w}))
 	}
 }
@@ -55,22 +58,14 @@ func testf2[T number](t *testing.T, a, b T, w float64, f func(T, T) float64) {
 // testfa tests function f to return wanted float64 w for slice a. If the
 // result of f for slice a does not equal w with the precision of two decimal places, the test fails.
 // It returns the error of f, if any
-func testfa[T number](t *testing.T, a []T, w float64, f func([]T) (float64, error)) error {
+func testfa[T Number](t *testing.T, a []T, w float64, f func([]T) (float64, error)) error {
 	if t == nil {
 		panic("nil pointer")
 	}
 	r, e := f(a)
-	// If the result b does not equal the wanted result w with the precision of two decimal places, the test fails
-	if !testEqualp2(r, w) {
+	// If the result b does not equal the wanted result w, the test fails
+	if !NearEqual(r, w, maxDiff) {
 		t.Error(tserr.Equalf(&tserr.EqualfArgs{Var: "function of a", Actual: r, Want: w}))
 	}
 	return e
-}
-
-// testEqualp2 returns whether a and b equal with the precision of two decimal places.
-// It returns true, if a and b are equal with the precision of two decimals places.
-// It returns false otherwise.
-func testEqualp2(a float64, b float64) bool {
-	var p float64 = 100
-	return math.Round(a*p) == math.Round(b*p)
 }

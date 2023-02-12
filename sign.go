@@ -5,7 +5,7 @@ package lpstats
 
 // Sign returns -1  if a is negative. It returns +1
 // if positive and 0 if a is zero.
-func Sign[T signed](a T) T {
+func Sign[T Signed](a T) T {
 	// Return 0 in case a equals zero
 	if a == 0 {
 		return 0

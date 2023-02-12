@@ -10,7 +10,7 @@ import (
 
 // Variance returns the variance of discrete value array x as float64. It returns zero and an error
 // if x is empty or if the calculation of the arithmetic mean fails.
-func Variance[T number](x []T) (float64, error) {
+func Variance[T Number](x []T) (float64, error) {
 	// Return an error if x is empty
 	if len(x) == 0 {
 		return float64(0), tserr.Empty("x")
@@ -33,7 +33,7 @@ func Variance[T number](x []T) (float64, error) {
 
 // VarianceU returns the variance of the uniform distribution in the interval [a,b] as float64. If b is greater than a
 // it returns the variance of the uniform distribution in the interval [b,a].
-func VarianceU[T number](a, b T) float64 {
+func VarianceU[T Number](a, b T) float64 {
 	// l for lower bound and u for upper bound of interval [l,u]
 	var l, u T
 	// Define interval of the uniform distribution
@@ -51,7 +51,7 @@ func VarianceU[T number](a, b T) float64 {
 }
 
 // VarianceN returns the Variance of an n-sided die as float64.
-func VarianceN[T uinteger](n T) float64 {
+func VarianceN[T Uinteger](n T) float64 {
 	// Calculate and return the variance
 	return (Square(n) - float64(1)) / float64(12)
 }
