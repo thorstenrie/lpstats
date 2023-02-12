@@ -3,10 +3,11 @@
 // that can be found in the LICENSE file.
 package lpstats
 
+// Import package testing and tserr
 import (
-	"testing"
+	"testing" // testing
 
-	"github.com/thorstenrie/tserr"
+	"github.com/thorstenrie/tserr" // tserr
 )
 
 // TestNEf tests NearEqual to return false for a difference of a and b greater than the
