@@ -39,9 +39,9 @@ import "github.com/thorstenrie/lpstats"
 
 External functions can be used with arguments of type integer or float. Type constraints are defined in [constraints.go](https://github.com/thorstenrie/lpstats/blob/main/constraints.go).
 
-- `number`: number types, for example, `func Square[T number](x T) float64`
-- `signed`: signed number types, for example, `func Sign[T signed](a T) T`
-- `uinteger`: unsigned integer types, for example, `func VarianceN[T uinteger](n T) float64`
+- `Number`: number types, for example, `func Square[T Number](x T) float64`
+- `Signed`: signed number types, for example, `func Sign[T Signed](a T) T`
+- `Uinteger`: unsigned integer types, for example, `func VarianceN[T Uinteger](n T) float64`
 
 ## Example
 
