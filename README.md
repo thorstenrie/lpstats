@@ -43,6 +43,20 @@ External functions can be used with arguments of type integer or float. Type con
 - `Signed`: signed number types, for example, `func Sign[T Signed](a T) T`
 - `Uinteger`: unsigned integer types, for example, `func VarianceN[T Uinteger](n T) float64`
 
+## Functions
+
+The package provides mathematical and statistical functions
+
+- Absolute value
+- Arithmetic mean of a discrete value array
+- Expected value for a uniform distribution
+- Near equal
+- Sign
+- Square
+- Sum
+- Variance of a discrete value array
+- Variance of a uniform distribution
+
 ## Example
 
 ```
