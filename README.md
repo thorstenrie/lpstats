@@ -96,8 +96,6 @@ func main() {
 
 [Godoc](https://pkg.go.dev/github.com/thorstenrie/lpstats)
 
-[Gocover.io](https://gocover.io/github.com/thorstenrie/lpstats)
-
 [Go Report Card](https://goreportcard.com/report/github.com/thorstenrie/lpstats)
 
 [Open Source Insights](https://deps.dev/go/github.com%2Fthorstenrie%2Flpstats)
