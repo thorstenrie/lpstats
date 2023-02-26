@@ -10,6 +10,7 @@ import (
 	"github.com/thorstenrie/tserr" // tserr
 )
 
+// maxDiff defines the maximum difference for near equal floats
 const (
 	maxDiff float64 = 0.01
 )
