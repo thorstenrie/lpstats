@@ -41,6 +41,7 @@ External functions can be used with arguments of type integer or float. Type con
 
 - `Number`: number types, for example, `func Square[T Number](x T) float64`
 - `Signed`: signed number types, for example, `func Sign[T Signed](a T) T`
+- `Sinteger`: signed integer types, for example `func EqualS[T Sinteger](x, y T) error`
 - `Uinteger`: unsigned integer types, for example, `func VarianceN[T Uinteger](n T) float64`
 
 ## Functions
@@ -49,6 +50,7 @@ The package provides mathematical and statistical functions
 
 - Absolute value
 - Arithmetic mean of a discrete value array
+- Equal for slices of signed integers
 - Expected value for a uniform distribution
 - Near equal
 - Sign
@@ -90,7 +92,7 @@ func main() {
 
 ## Known Limitations
 
-- The calculations are based on floating point arithmetic. It is not suitable for arbitrary precision fixed-point decimal arithmetic.
+- Most calculations are based on floating point arithmetic. It is not suitable for arbitrary precision fixed-point decimal arithmetic.
 
 ## Links
 

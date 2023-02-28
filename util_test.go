@@ -10,9 +10,11 @@ import (
 	"github.com/thorstenrie/tserr" // tserr
 )
 
-// maxDiff defines the maximum difference for near equal floats
 const (
+	// maxDiff defines the maximum difference for near equal floats
 	maxDiff float64 = 0.01
+	// sLen defines the number of elements of a slice
+	sLen int = 10
 )
 
 // testi tests function f to return wanted integer w for argument a. If the
