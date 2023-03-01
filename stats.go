@@ -3,6 +3,7 @@
 //
 // - Absolute value
 // - Arithmetic mean of a discrete value array
+// - Equal for slices of signed integers
 // - Expected value for a uniform distribution
 // - Near equal (for float types)
 // - Sign
