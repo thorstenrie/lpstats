@@ -51,11 +51,25 @@ func testf2[T Number](t *testing.T, a, b T, w float64, f func(T, T) float64) {
 	if t == nil {
 		panic("nil pointer")
 	}
-	// Retrieve f of a in b
+	// Retrieve f of a and b in r
 	r := f(a, b)
 	// If the result r does not equal the wanted result w, the test fails
 	if !NearEqual(r, w, maxDiff) {
-		t.Error(tserr.Equalf(&tserr.EqualfArgs{Var: "function of a", Actual: r, Want: w}))
+		t.Error(tserr.Equalf(&tserr.EqualfArgs{Var: "function of a and b", Actual: r, Want: w}))
+	}
+}
+
+// testi2 tests function f to return wanted int64 w for arguments a and b. If the
+// result of f for a and b does not equal w, the test fails.
+func testi2[T Number](t *testing.T, a, b T, w int64, f func(T, T) int64) {
+	if t == nil {
+		panic("nil pointer")
+	}
+	// Retrieve f of a and b in r
+	r := f(a, b)
+	// If the result r does not equal the wanted result w, the test fails
+	if r != w {
+		t.Error(tserr.Equal(&tserr.EqualArgs{Var: "function of a and b", Actual: r, Want: w}))
 	}
 }
 
