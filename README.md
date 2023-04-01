@@ -52,6 +52,8 @@ The package provides mathematical and statistical functions
 - Arithmetic mean of a discrete value array
 - Equal for slices of signed integers
 - Expected value for a uniform distribution
+- Max
+- Min
 - Near equal
 - Sign
 - Square
