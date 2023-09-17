@@ -4,23 +4,17 @@
 package lpstats
 
 // Max returns the maximum of a and b. If a is higher than b, it returns a.
-// Otherwise, it returns b.
+// Otherwise, it returns b. Marked as deprecated due to introduction of the
+// native Go max function with Go version 1.21. Will be removed in future
+// releases.
 func Max[T Number](a, b T) T {
-	// Return a, if a is higher than b
-	if a > b {
-		return a
-	}
-	// Otherwise, return b
-	return b
+	return max(a, b)
 }
 
 // Min returns the minimum of a and b. If a is lower than b, it returns a.
-// Otherwise, it returns b.
+// Otherwise, it returns b. Marked as deprecated due to introduction of the
+// native Go min function with Go version 1.21. Will be removed in future
+// releases.
 func Min[T Number](a, b T) T {
-	// Returns a, if a is lower than b
-	if a < b {
-		return a
-	}
-	// Otherwise, return b
-	return b
+	return min(a, b)
 }
