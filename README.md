@@ -20,7 +20,7 @@ The package lpstats provides a simple interface for statistics. It provides func
 
 - **Simple**: Without configuration, just function calls
 - **Easy to use**: Most functions take integer and float values as arguments
-- **Tested**: Unit tests with high [code coverage](https://gocover.io/github.com/thorstenrie/lpstats)
+- **Tested**: Unit tests with high code coverage
 - **Dependencies**: Only depends on the [Go Standard Library](https://pkg.go.dev/std) and [tserr](https://github.com/thorstenrie/tserr)
 
 ## Usage
